@@ -1,28 +1,26 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
-import Button from '../index';
+import TerraButton from '../index';
 
-storiesOf('Button', module)
-  .add('default view', () => (
-    <pre>
-      process.env.STORYBOOK_CLOUD_URL: {process.env.STORYBOOK_CLOUD_URL}
-      process.env.STORYBOOK_CLOUD_APPID: {process.env.STORYBOOK_CLOUD_APPID}
-      process.env.STORYBOOK_CLOUD_DATABASE: {process.env.STORYBOOK_CLOUD_DATABASE}
-    </pre>
+storiesOf('TerraButton', module)
+  .add('Default', () => (
+    <TerraButton onClick={ linkTo('TerraButton', 'Primary') }>Default Button</TerraButton>
   ))
-  .add('link button', () => (
-    <Button onClick={ linkTo('Button', 'some emojies as the text') }>Next Story</Button>
+  .add('Primary', () => (
+    <TerraButton tStyle="primary" onClick={ linkTo('TerraButton', 'Secondary') }>Primary Button</TerraButton>
   ))
-  .add('some emojies as the text', () => (
-    <Button>😀 😎 👍 💯</Button>
+  .add('Secondary', () => (
+    <TerraButton tStyle="secondary" onClick={ linkTo('TerraButton', 'Positive') }>Secondary Button</TerraButton>
   ))
-  .add('custom styles', () => {
-    const style = {
-      fontSize: 20,
-      textTransform: 'uppercase',
-      color: '#FF8833',
-    };
-    return (
-      <Button style={ style }>Hello</Button>
-    );
-  });
+  .add('Positive', () => (
+    <TerraButton tStyle="positive" onClick={ linkTo('TerraButton', 'Negative') }>Positive Button</TerraButton>
+  ))
+  .add('Negative', () => (
+    <TerraButton tStyle="negative" onClick={ linkTo('TerraButton', 'Warning') }>Negative Button</TerraButton>
+  ))
+  .add('Warning', () => (
+    <TerraButton tStyle="warning" onClick={ linkTo('TerraButton', 'Info') }>Warning Button</TerraButton>
+  ))
+  .add('Info', () => (
+    <TerraButton tStyle="info" onClick={ linkTo('TerraButton', 'Default') }>Info Button</TerraButton>
+  ));
